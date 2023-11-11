@@ -1,3 +1,4 @@
+import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 
 class PostView extends StatelessWidget {
@@ -5,10 +6,11 @@ class PostView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
 
-    return const Scaffold(
+    return Scaffold(
       body: Column(
         children: [
-          Text('Post')
+          Text(DataHolder().selectedPost.titulo),
+          Text(DataHolder().selectedPost.cuerpo)
         ]
       )
     );

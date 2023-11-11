@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../custom/HLButtonsBoarding.dart';
 import '../custom/HLTextField.dart';
-import '../custom/HLTheme.dart';
+import '../singletone/DataHolder.dart';
 
 class LoginView extends StatelessWidget {
 
@@ -38,9 +38,12 @@ class LoginView extends StatelessWidget {
     }
   }
 
-  void onHLTextutton(int indice) {
-    if(indice == 0) onClickLogin();
-    else if(indice == 1) onClickRegister();
+  void onHLTextButton(int indice) {
+    if(indice == 0) {
+      onClickLogin();
+    } else if(indice == 1) {
+      onClickRegister();
+    }
   }
 
   @override
@@ -49,19 +52,19 @@ class LoginView extends StatelessWidget {
     _context = context;
 
     return Scaffold(
-        backgroundColor: HLTheme.colorFondo,
+        backgroundColor: DataHolder().colorFondo,
         appBar: AppBar(
-            title: Text('Login'),
+            title: const Text('Login'),
             centerTitle: true,
-            backgroundColor: HLTheme.colorPrincipal
+            backgroundColor: DataHolder().colorPrincipal
         ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('resources/gatoElegante.jpg', height: 200),
-              HLTextField(sLabel: 'Username', tecController: tecEmail, iIcon: Icon(Icons.account_circle_rounded)),
-              HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true, iIcon: Icon(Icons.password)),
-              HLButtonsBoarding(sText0: Text('Login'), sText1: Text('Register'), evento: onHLTextutton)
+              HLTextField(sLabel: 'Username', tecController: tecEmail, iIcon: const Icon(Icons.account_circle_rounded)),
+              HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true, iIcon: const Icon(Icons.password)),
+              HLButtonsBoarding(sText0: const Text('Login'), sText1: const Text('Register'), evento: onHLTextButton)
             ]
         )
     );

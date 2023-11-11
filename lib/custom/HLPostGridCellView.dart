@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'HLTheme.dart';
+import '../singletone/DataHolder.dart';
 
-class PostGridCellView extends StatelessWidget {
+class HLPostGridCellView extends StatelessWidget {
 
   final String sTitle;
   final String sBody;
@@ -10,7 +10,7 @@ class PostGridCellView extends StatelessWidget {
   final int iPosition;
   final Function(int indice)? onItemTap;
 
-  const PostGridCellView({super.key,
+  const HLPostGridCellView({super.key,
     required this.sTitle,
     required this.sBody,
     required this.dFontSize,
@@ -29,7 +29,7 @@ class PostGridCellView extends StatelessWidget {
           child: Container(
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(10.0),
-                  color: HLTheme.colorPrincipal
+                  color: DataHolder().colorPrincipal
               ),
               child: Padding(
                   padding: const EdgeInsets.all(10),

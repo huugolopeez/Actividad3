@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'HLTheme.dart';
+import '../singletone/DataHolder.dart';
 
 class HLButtonsBoarding extends StatelessWidget {
 
@@ -21,29 +21,29 @@ class HLButtonsBoarding extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: 150, height: 50),
+              constraints: const BoxConstraints.tightFor(width: 150, height: 50),
               child: ElevatedButton(
                   onPressed: () => evento!(0),
-                  child: sText0,
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(HLTheme.colorFondo),
-                      side: MaterialStateProperty.all(BorderSide(color: HLTheme.colorPrincipal)),
+                      backgroundColor: MaterialStateProperty.all(DataHolder().colorFondo),
+                      side: MaterialStateProperty.all(BorderSide(color: DataHolder().colorPrincipal)),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)
-                          )))
+                          ))),
+                  child: sText0
               )),
           ConstrainedBox(
-              constraints: BoxConstraints.tightFor(width: 150, height: 50),
+              constraints: const BoxConstraints.tightFor(width: 150, height: 50),
               child: ElevatedButton(
                   onPressed: () => evento!(1),
-                  child: sText1,
                   style: ButtonStyle(
-                      backgroundColor: MaterialStateProperty.all(HLTheme.colorPrincipal),
+                      backgroundColor: MaterialStateProperty.all(DataHolder().colorPrincipal),
                       shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                           RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(10.0)
-                          )))
+                          ))),
+                  child: sText1
               ))
         ]
     );

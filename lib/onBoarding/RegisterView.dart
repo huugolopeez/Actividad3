@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../custom/HLButtonsBoarding.dart';
 import '../custom/HLTextField.dart';
-import '../custom/HLTheme.dart';
+import '../singletone/DataHolder.dart';
 
 class RegisterView extends StatelessWidget {
 
@@ -46,9 +46,12 @@ class RegisterView extends StatelessWidget {
     }
   }
 
-  void onHLTextutton(int indice) {
-    if(indice == 0) onClickRegister();
-    else if(indice == 1) onClickCancel();
+  void onHLTextButton(int index) {
+    if(index == 0) {
+      onClickRegister();
+    } else if(index == 1) {
+      onClickCancel();
+    }
   }
 
   @override
@@ -57,20 +60,20 @@ class RegisterView extends StatelessWidget {
     _context = context;
 
     return Scaffold(
-        backgroundColor: HLTheme.colorFondo,
+        backgroundColor: DataHolder().colorFondo,
         appBar: AppBar(
-            title: Text('Register'),
+            title: const Text('Register'),
             centerTitle: true,
-            backgroundColor: HLTheme.colorPrincipal
+            backgroundColor: DataHolder().colorPrincipal
         ),
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('resources/gatoElegante.jpg', height: 200),
-              HLTextField(sLabel: 'Username', tecController: tecEmail, iIcon: Icon(Icons.account_circle_rounded)),
-              HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true, iIcon: Icon(Icons.password)),
-              HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true, iIcon: Icon(Icons.password)),
-              HLButtonsBoarding(sText0: Text('Register'), sText1: Text('Cancel'), evento: onHLTextutton)
+              HLTextField(sLabel: 'Username', tecController: tecEmail, iIcon: const Icon(Icons.account_circle_rounded)),
+              HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true, iIcon: const Icon(Icons.password)),
+              HLTextField(sLabel: 'Confirm password', tecController: tecRepass, blIsPassword: true, iIcon: const Icon(Icons.password)),
+              HLButtonsBoarding(sText0: const Text('Register'), sText1: const Text('Cancel'), evento: onHLTextButton)
             ]
         )
     );
