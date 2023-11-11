@@ -1,3 +1,4 @@
+import 'package:actividad3/main/PostView.dart';
 import 'package:flutter/material.dart';
 
 import 'main/HomeView.dart';
@@ -13,15 +14,16 @@ class Actividad3 extends StatelessWidget {
 
     return MaterialApp(
         title: '3PMDM',
+        debugShowCheckedModeBanner: false,
+        initialRoute: '/splashview',
         routes: {
           '/loginview': (context) => LoginView(),
           '/registerview': (context) => RegisterView(),
           '/homeview': (context) => HomeView(),
           '/splashview': (context) => SplashView(),
-          '/perfilview': (context) => PerfilView()
-        },
-        initialRoute: '/splashview',
-        debugShowCheckedModeBanner: false
+          '/perfilview': (context) => PerfilView(),
+          '/postview': (context) => PostView()
+        }
     );
   }
 }

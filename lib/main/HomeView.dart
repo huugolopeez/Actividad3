@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../custom/HLBottomMenu.dart';
@@ -38,7 +39,11 @@ class _HomeViewState extends State<HomeView> {
     });
   }
 
-  void onItemTap(int indice) {
+  void onItemTapList(int indice) {
+    Navigator.of(context).pushNamed('/postview');
+  }
+
+  void onItemTapDrawer(int indice) {
     setState(() {
       if(indice == 0) {
         FirebaseAuth.instance.signOut();
@@ -65,10 +70,16 @@ class _HomeViewState extends State<HomeView> {
   Widget? gridOrList(bool bIsList) {
     if(bIsList) {
       return ListView.separated(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           itemCount: posts.length,
           itemBuilder: (context, index) {
-            return PostCellView(sTitulo: posts[index].titulo, sCuerpo: posts[index].cuerpo, dFontSize: 30);
+            return PostCellView(
+                sTitle: posts[index].titulo,
+                sBody: posts[index].cuerpo,
+                dFontSize: kIsWeb ? 30 : 10,
+                iPosition: index,
+                onItemTap: onItemTapList
+            );
           },
           separatorBuilder: (context, index) {
             return Divider();
@@ -76,11 +87,17 @@ class _HomeViewState extends State<HomeView> {
       );
     } else {
       return GridView.builder(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
           itemCount: posts.length,
           itemBuilder: (context, index) {
-            return PostGridCellView(sTitulo: posts[index].titulo, sCuerpo: posts[index].cuerpo, dFontSize: 30);
+            return PostGridCellView(
+                sTitle: posts[index].titulo,
+                sBody: posts[index].cuerpo,
+                dFontSize: kIsWeb ? 30 : 10,
+                iPosition: index,
+                onItemTap: onItemTapList
+            );
           }
       );
     }
@@ -92,7 +109,7 @@ class _HomeViewState extends State<HomeView> {
     return Scaffold(
       backgroundColor: HLTheme.colorFondo,
       appBar: AppBar(
-        title: Text('Home'),
+        title: const Text('Home'),
         centerTitle: true,
         backgroundColor: Colors.transparent,
         shadowColor: Colors.transparent,
@@ -101,7 +118,7 @@ class _HomeViewState extends State<HomeView> {
           child: gridOrList(bIsList)
       ),
       bottomNavigationBar: BottomMenu(evento: onBottomMenuPressed),
-      drawer: HLDrawerClass(onItemTap: (int indice) { onItemTap(indice); }),
+      drawer: HLDrawerClass(onItemTap: onItemTapDrawer)
     );
   }
 }
