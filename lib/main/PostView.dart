@@ -11,17 +11,18 @@ class PostView extends StatelessWidget {
       body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Padding(
-            padding: const EdgeInsets.fromLTRB(40, 40, 0, 20),
+          const Padding(
+            padding: EdgeInsets.fromLTRB(40, 40, 0, 20),
             child: Row(
               children: [
-                const Padding(
+                Padding(
                   padding: EdgeInsets.only(right: 10),
                   child: Icon(Icons.account_circle)
                 ),
                 Text(
-                  DataHolder().selectUser.nombre.toString(),
-                  style: const TextStyle(color: Colors.white)
+                  //DataHolder().selectUser.nombre.toString(),
+                  'Nombre de usuario',
+                  style: TextStyle(color: Colors.white)
                 )
               ])
           ),
