@@ -2,7 +2,6 @@ import 'package:actividad3/custom/HLButtonsBoarding.dart';
 import 'package:actividad3/custom/HLTextField.dart';
 import 'package:actividad3/firestoreObjects/FbPost.dart';
 import 'package:actividad3/singletone/DataHolder.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class PostCreateView extends StatelessWidget {
@@ -10,18 +9,12 @@ class PostCreateView extends StatelessWidget {
   late BuildContext _context;
   TextEditingController tecTitle = TextEditingController();
   TextEditingController tecBody = TextEditingController();
-  FirebaseFirestore db = FirebaseFirestore.instance;
 
-  void onHLButtonsBoarding(int indice) {
-    if(indice == 0) {
-      FbPost newPost = FbPost(titulo: tecTitle.text, cuerpo: tecBody.text);
-      CollectionReference<FbPost> postRef = db.collection('Posts').withConverter(
-          fromFirestore: FbPost.fromFirestore,
-          toFirestore: (FbPost post, _) => post.toFirestore()
-      );
-      postRef.add(newPost);
+  void onHLButtonsBoarding(int index) {
+    if(index == 0) {
+      DataHolder().insertPost(FbPost(titulo: tecTitle.text, cuerpo: tecBody.text));
       Navigator.of(_context).popAndPushNamed('/homeview');
-    } else if(indice == 1) {
+    } else if(index == 1) {
       Navigator.of(_context).popAndPushNamed('/homeview');
     }
   }
