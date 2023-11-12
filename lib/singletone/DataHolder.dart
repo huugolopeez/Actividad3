@@ -28,6 +28,7 @@ class DataHolder {
   void initCache() {
     loadColors();
     loadCacheFbPost();
+    loadCacheFbUser();
   }
 
   void insertPost(FbPost post) {
@@ -46,9 +47,28 @@ class DataHolder {
     prefs.setString('postBody', selectedPost.cuerpo);
   }
 
+  void saveSelectedUserInCache() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    prefs.setString('userName', selectUser.nombre);
+    prefs.setInt('userAge', selectUser.edad);
+  }
+
   void loadColors() {
     colorFondo = const Color.fromRGBO(38, 41, 43, 1.0);
     colorPrincipal = const Color.fromRGBO(95, 122, 219, 1.0);
+  }
+
+  void loadCacheFbUser() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    String? userName = prefs.getString('userName');
+    int? userAge = prefs.getInt('userAge');
+
+    userName ??= '';
+    userAge ??= 0;
+
+    selectUser = FbUsuario(nombre: userName, edad: userAge);
   }
 
   void loadCacheFbPost() async {

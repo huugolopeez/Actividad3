@@ -27,6 +27,7 @@ class _SplashViewState extends State<SplashView> {
 
       if(usuario != null) {
         DataHolder().selectUser = usuario;
+        DataHolder().saveSelectedUserInCache();
         Navigator.of(context).popAndPushNamed('/homeview');
       } else {
         Navigator.of(context).popAndPushNamed('/perfilview');
