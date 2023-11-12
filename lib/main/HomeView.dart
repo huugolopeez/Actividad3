@@ -1,17 +1,16 @@
 import 'dart:io';
 
+import 'package:actividad3/custom/HLBottomMenu.dart';
+import 'package:actividad3/custom/HLDrawerClass.dart';
+import 'package:actividad3/custom/HLPostCellView.dart';
+import 'package:actividad3/custom/HLPostGridCellView.dart';
+import 'package:actividad3/firestoreObjects/FbPost.dart';
+import 'package:actividad3/onBoarding/LoginView.dart';
 import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-
-import '../custom/HLBottomMenu.dart';
-import '../custom/HLDrawerClass.dart';
-import '../custom/HLPostCellView.dart';
-import '../custom/HLPostGridCellView.dart';
-import '../firestoreObjects/FbPost.dart';
-import '../onBoarding/LoginView.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -120,7 +119,12 @@ class _HomeViewState extends State<HomeView> {
           child: gridOrList(bIsList)
       ),
       bottomNavigationBar: HLBottomMenu(evento: onBottomMenuPressed),
-      drawer: HLDrawerClass(onItemTap: onItemTapDrawer)
+      drawer: HLDrawerClass(onItemTap: onItemTapDrawer),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () { Navigator.of(context).popAndPushNamed('/postcreateview'); },
+        backgroundColor: DataHolder().colorPrincipal,
+        child: const Icon(Icons.add)
+      ),
     );
   }
 }

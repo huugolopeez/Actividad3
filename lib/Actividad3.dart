@@ -1,3 +1,4 @@
+import 'package:actividad3/main/PostCreateView.dart';
 import 'package:actividad3/main/PostView.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +23,8 @@ class Actividad3 extends StatelessWidget {
           '/homeview': (context) => HomeView(),
           '/splashview': (context) => SplashView(),
           '/perfilview': (context) => PerfilView(),
-          '/postview': (context) => PostView()
+          '/postview': (context) => PostView(),
+          '/postcreateview': (context) => PostCreateView()
         }
     );
   }
