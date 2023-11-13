@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../singletone/DataHolder.dart';
 
-class HLDrawerClass extends StatelessWidget {
+class HLMDrawerClass extends StatelessWidget {
 
   final Function(int indice)? onItemTap;
 
-  const HLDrawerClass({super.key,
+  const HLMDrawerClass({super.key,
     required this.onItemTap
   });
 

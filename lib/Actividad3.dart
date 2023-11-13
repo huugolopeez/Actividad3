@@ -1,3 +1,4 @@
+import 'package:actividad3/main/GestionView.dart';
 import 'package:actividad3/main/PostCreateView.dart';
 import 'package:actividad3/main/PostView.dart';
 import 'package:actividad3/onBoarding/MLoginView.dart';
@@ -30,7 +31,8 @@ class Actividad3 extends StatelessWidget {
             '/splashview': (context) => SplashView(),
             '/perfilview': (context) => PerfilView(),
             '/postview': (context) => PostView(),
-            '/postcreateview': (context) => PostCreateView()
+            '/postcreateview': (context) => PostCreateView(),
+            '/gestionview': (context) => GestionView()
           }
       );
     } else {

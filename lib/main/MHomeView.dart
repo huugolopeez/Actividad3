@@ -6,7 +6,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 import '../custom/HLBottomMenu.dart';
-import '../custom/HLDrawerClass.dart';
+import '../custom/HLMDrawerClass.dart';
 import '../custom/HLPostCellView.dart';
 import '../custom/HLPostGridCellView.dart';
 import '../firestoreObjects/FbPost.dart';
@@ -120,7 +120,7 @@ class _MHomeViewState extends State<MHomeView> {
           child: gridOrList(bIsList)
       ),
       bottomNavigationBar: HLBottomMenu(evento: onBottomMenuPressed),
-      drawer: HLDrawerClass(onItemTap: onItemTapDrawer),
+      drawer: HLMDrawerClass(onItemTap: onItemTapDrawer),
       floatingActionButton: FloatingActionButton(
           onPressed: () { Navigator.of(context).popAndPushNamed('/postcreateview'); },
           backgroundColor: DataHolder().colorPrincipal,

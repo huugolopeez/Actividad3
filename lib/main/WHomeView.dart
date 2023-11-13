@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:actividad3/custom/HLBottomMenu.dart';
-import 'package:actividad3/custom/HLDrawerClass.dart';
+import 'package:actividad3/custom/HLMDrawerClass.dart';
 import 'package:actividad3/custom/HLPostCellView.dart';
 import 'package:actividad3/custom/HLPostGridCellView.dart';
 import 'package:actividad3/firestoreObjects/FbPost.dart';
@@ -9,8 +9,9 @@ import 'package:actividad3/onBoarding/WLoginView.dart';
 import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import '../custom/HLWDrawerClass.dart';
 
 class WHomeView extends StatefulWidget {
   @override
@@ -53,7 +54,7 @@ class _WHomeViewState extends State<WHomeView> {
             ModalRoute.withName('/loginview')
         );
       } else if(index == 1) {
-        exit(0);
+        Navigator.of(context).pushNamed('/gestionview');
       }
     });
   }
@@ -119,7 +120,7 @@ class _WHomeViewState extends State<WHomeView> {
           child: gridOrList(bIsList)
       ),
       bottomNavigationBar: HLBottomMenu(evento: onBottomMenuPressed),
-      drawer: HLDrawerClass(onItemTap: onItemTapDrawer),
+      drawer: HLWDrawerClass(onItemTap: onItemTapDrawer),
       floatingActionButton: FloatingActionButton(
         onPressed: () { Navigator.of(context).popAndPushNamed('/postcreateview'); },
         backgroundColor: DataHolder().colorPrincipal,
