@@ -5,19 +5,19 @@ import 'package:actividad3/custom/HLDrawerClass.dart';
 import 'package:actividad3/custom/HLPostCellView.dart';
 import 'package:actividad3/custom/HLPostGridCellView.dart';
 import 'package:actividad3/firestoreObjects/FbPost.dart';
-import 'package:actividad3/onBoarding/LoginView.dart';
+import 'package:actividad3/onBoarding/WLoginView.dart';
 import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class HomeView extends StatefulWidget {
+class WHomeView extends StatefulWidget {
   @override
-  State<HomeView> createState() => _HomeViewState();
+  State<WHomeView> createState() => _WHomeViewState();
 }
 
-class _HomeViewState extends State<HomeView> {
+class _WHomeViewState extends State<WHomeView> {
 
   final List<FbPost> posts = [];
   bool bIsList = true;
@@ -49,7 +49,7 @@ class _HomeViewState extends State<HomeView> {
       if(index == 0) {
         FirebaseAuth.instance.signOut();
         Navigator.of(context).pushAndRemoveUntil(
-            MaterialPageRoute(builder: (BuildContext context) => LoginView()),
+            MaterialPageRoute(builder: (BuildContext context) => WLoginView()),
             ModalRoute.withName('/loginview')
         );
       } else if(index == 1) {
@@ -77,7 +77,7 @@ class _HomeViewState extends State<HomeView> {
             return HLPostCellView(
                 sTitle: posts[index].titulo,
                 sBody: posts[index].cuerpo,
-                dFontSize: kIsWeb ? 30 : 10,
+                dFontSize: 30,
                 iPosition: index,
                 onItemTap: onItemTapList
             );
@@ -95,7 +95,7 @@ class _HomeViewState extends State<HomeView> {
             return HLPostGridCellView(
                 sTitle: posts[index].titulo,
                 sBody: posts[index].cuerpo,
-                dFontSize: kIsWeb ? 30 : 10,
+                dFontSize: 30,
                 iPosition: index,
                 onItemTap: onItemTapList
             );
@@ -124,7 +124,7 @@ class _HomeViewState extends State<HomeView> {
         onPressed: () { Navigator.of(context).popAndPushNamed('/postcreateview'); },
         backgroundColor: DataHolder().colorPrincipal,
         child: const Icon(Icons.add)
-      ),
+      )
     );
   }
 }

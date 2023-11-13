@@ -5,7 +5,7 @@ import '../custom/HLButtonsBoarding.dart';
 import '../custom/HLTextField.dart';
 import '../singletone/DataHolder.dart';
 
-class LoginView extends StatelessWidget {
+class MLoginView extends StatelessWidget {
 
   late BuildContext _context;
   TextEditingController tecEmail = TextEditingController();

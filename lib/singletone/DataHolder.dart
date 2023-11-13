@@ -1,3 +1,4 @@
+import 'package:actividad3/singletone/FirebaseAdmin.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -10,6 +11,7 @@ class DataHolder {
   static final DataHolder _dataHolder = DataHolder._internal();
 
   FirebaseFirestore db = FirebaseFirestore.instance;
+  FirebaseAdmin fbAdmin = FirebaseAdmin();
 
   late Color colorFondo;
   late Color colorPrincipal;
@@ -29,15 +31,6 @@ class DataHolder {
     loadColors();
     loadCacheFbPost();
     loadCacheFbUser();
-  }
-
-  void insertPost(FbPost post) {
-    CollectionReference<FbPost> postRef = db.collection('Posts').withConverter(
-        fromFirestore: FbPost.fromFirestore,
-        toFirestore: (FbPost post, _) => post.toFirestore()
-    );
-
-    postRef.add(post);
   }
 
   void saveSelectedPostInCache() async {
