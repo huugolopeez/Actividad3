@@ -6,6 +6,7 @@ class HLPostCellView extends StatelessWidget {
 
   final String sTitle;
   final String sBody;
+  final String sImage;
   final double dFontSize;
   final int iPosition;
   final Function(int indice)? onItemTap;
@@ -13,6 +14,7 @@ class HLPostCellView extends StatelessWidget {
   const HLPostCellView({super.key,
     required this.sTitle,
     required this.sBody,
+    required this.sImage,
     required this.dFontSize,
     required this.iPosition,
     required this.onItemTap
@@ -49,7 +51,11 @@ class HLPostCellView extends StatelessWidget {
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: dFontSize
-                        ))
+                        )),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 10.0),
+                      child: Image.network(sImage, height: 200)
+                    )
                   ])
           )
       )

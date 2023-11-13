@@ -76,6 +76,7 @@ class _WHomeViewState extends State<WHomeView> {
             return HLPostCellView(
                 sTitle: posts[index].titulo,
                 sBody: posts[index].cuerpo,
+                sImage: posts[index].imagen,
                 dFontSize: 30,
                 iPosition: index,
                 onItemTap: onItemTapList

@@ -78,6 +78,7 @@ class _MHomeViewState extends State<MHomeView> {
             return HLPostCellView(
                 sTitle: posts[index].titulo,
                 sBody: posts[index].cuerpo,
+                sImage: posts[index].imagen,
                 dFontSize: 10,
                 iPosition: index,
                 onItemTap: onItemTapList
@@ -90,7 +91,10 @@ class _MHomeViewState extends State<MHomeView> {
     } else {
       return GridView.builder(
           padding: const EdgeInsets.all(20),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              mainAxisExtent: 60
+          ),
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return HLPostGridCellView(

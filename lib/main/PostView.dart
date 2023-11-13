@@ -27,7 +27,7 @@ class _PostViewState extends State<PostView> {
 
     return Scaffold(
         backgroundColor: DataHolder().colorFondo,
-        body: Column(
+        body: blPostLoaded ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Padding(
@@ -52,11 +52,16 @@ class _PostViewState extends State<PostView> {
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(DataHolder().selectedPost.cuerpo, style: const TextStyle(color: Colors.white)),
               ),
-              Center(
-                child: Image.network(DataHolder().selectedPost.imagen)
+              Padding(
+                padding: const EdgeInsets.only(top: 20),
+                child: Center(
+                  child: Image.network(DataHolder().selectedPost.imagen, height: 200)
+                ),
               )
             ]
         )
+        :
+        CircularProgressIndicator()
     );
   }
 }
