@@ -69,10 +69,12 @@ class DataHolder {
 
     String? postTitle = prefs.getString('postTitle');
     String? postBody = prefs.getString('postBody');
+    String? postImage = prefs.getString('postImage');
 
     postTitle ??= '';
     postBody ??= '';
+    postImage ??= '';
 
-    selectedPost = FbPost(titulo: postTitle, cuerpo: postBody);
+    selectedPost = FbPost(titulo: postTitle, cuerpo: postBody, imagen: postImage);
   }
 }

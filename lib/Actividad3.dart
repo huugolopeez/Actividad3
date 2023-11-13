@@ -40,7 +40,7 @@ class Actividad3 extends StatelessWidget {
       materialApp = MaterialApp(
           title: '3PMDM',
           debugShowCheckedModeBanner: false,
-          initialRoute: '/phoneloginview',
+          initialRoute: '/loginview',
           routes: {
             '/loginview': (context) => MLoginView(),
             '/registerview': (context) => RegisterView(),

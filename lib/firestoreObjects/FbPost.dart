@@ -4,10 +4,12 @@ class FbPost {
 
   final String titulo;
   final String cuerpo;
+  final String imagen;
 
   FbPost({
     required this.titulo,
-    required this.cuerpo
+    required this.cuerpo,
+    required this.imagen
   });
 
   factory FbPost.fromFirestore(
@@ -17,14 +19,16 @@ class FbPost {
     final data = snapshot.data();
     return FbPost(
         titulo: data?['titulo'],
-        cuerpo: data?['cuerpo']
+        cuerpo: data?['cuerpo'],
+        imagen: data?['imagen']
     );
   }
 
   Map<String, dynamic> toFirestore() {
     return {
       if (titulo != null) "titulo" : titulo,
-      if (cuerpo != null) "cuerpo" : cuerpo
+      if (cuerpo != null) "cuerpo" : cuerpo,
+      if (imagen != null) "imagen" : imagen
     };
   }
 }

@@ -1,7 +1,26 @@
 import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:flutter/material.dart';
 
-class PostView extends StatelessWidget {
+class PostView extends StatefulWidget {
+
+  @override
+  State<PostView> createState() => _PostViewState();
+}
+
+class _PostViewState extends State<PostView> {
+  bool blPostLoaded = false;
+
+  @override
+  void initState() {
+    super.initState();
+    cargarPostCache();
+  }
+
+  void cargarPostCache() async {
+    setState(() {
+      blPostLoaded = true;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +40,7 @@ class PostView extends StatelessWidget {
                         ),
                         Text(
                             DataHolder().selectedUser.nombre.toString(),
-                            //'Nombre de usuario',
-                            style: TextStyle(color: Colors.white)
+                            style: const TextStyle(color: Colors.white)
                         )
                       ])
               ),
@@ -33,10 +51,12 @@ class PostView extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.only(left: 40),
                 child: Text(DataHolder().selectedPost.cuerpo, style: const TextStyle(color: Colors.white)),
+              ),
+              Center(
+                child: Image.network(DataHolder().selectedPost.imagen)
               )
             ]
         )
     );
   }
-
 }
