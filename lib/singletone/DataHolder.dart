@@ -17,7 +17,7 @@ class DataHolder {
   late Color colorPrincipal;
 
   late FbPost selectedPost;
-  late FbUsuario selectUser;
+  late FbUsuario selectedUser;
 
   DataHolder._internal() {
     initCache();
@@ -43,8 +43,8 @@ class DataHolder {
   void saveSelectedUserInCache() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
 
-    prefs.setString('userName', selectUser.nombre);
-    prefs.setInt('userAge', selectUser.edad);
+    prefs.setString('userName', selectedUser.nombre);
+    prefs.setInt('userAge', selectedUser.edad);
   }
 
   void loadColors() {
@@ -61,7 +61,7 @@ class DataHolder {
     userName ??= '';
     userAge ??= 0;
 
-    selectUser = FbUsuario(nombre: userName, edad: userAge);
+    selectedUser = FbUsuario(nombre: userName, edad: userAge);
   }
 
   void loadCacheFbPost() async {

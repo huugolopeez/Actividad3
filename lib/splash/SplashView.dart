@@ -26,7 +26,7 @@ class _SplashViewState extends State<SplashView> {
       FbUsuario? usuario = docSnap.data();
 
       if(usuario != null) {
-        DataHolder().selectUser = usuario;
+        DataHolder().selectedUser = usuario;
         DataHolder().saveSelectedUserInCache();
         Navigator.of(context).popAndPushNamed('/homeview');
       } else {

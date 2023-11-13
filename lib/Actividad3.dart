@@ -2,6 +2,7 @@ import 'package:actividad3/main/GestionView.dart';
 import 'package:actividad3/main/PostCreateView.dart';
 import 'package:actividad3/main/PostView.dart';
 import 'package:actividad3/onBoarding/MLoginView.dart';
+import 'package:actividad3/onBoarding/PhoneLoginView.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -39,7 +40,7 @@ class Actividad3 extends StatelessWidget {
       materialApp = MaterialApp(
           title: '3PMDM',
           debugShowCheckedModeBanner: false,
-          initialRoute: '/splashview',
+          initialRoute: '/phoneloginview',
           routes: {
             '/loginview': (context) => MLoginView(),
             '/registerview': (context) => RegisterView(),
@@ -47,7 +48,8 @@ class Actividad3 extends StatelessWidget {
             '/splashview': (context) => SplashView(),
             '/perfilview': (context) => PerfilView(),
             '/postview': (context) => PostView(),
-            '/postcreateview': (context) => PostCreateView()
+            '/postcreateview': (context) => PostCreateView(),
+            '/phoneloginview': (context) => PhoneLoginView()
           }
       );
     }

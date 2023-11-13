@@ -29,7 +29,7 @@ class HLWDrawerClass extends StatelessWidget {
                                       child: Icon(Icons.account_circle)
                                   ),
                                   Text(
-                                      DataHolder().selectUser.nombre.toString(),
+                                      DataHolder().selectedUser.nombre.toString(),
                                       style: const TextStyle(color: Colors.white)
                                   )
                                 ])

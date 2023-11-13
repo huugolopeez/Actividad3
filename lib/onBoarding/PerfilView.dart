@@ -51,8 +51,8 @@ class PerfilView extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset('resources/gatoElegante.jpg', height: 200),
-              HLTextField(sLabel: 'Name', tecController: tecName, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
-              HLTextField(sLabel: 'Age', tecController: tecAge, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
+              HLTextField(sLabel: 'Nombre', tecController: tecName, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
+              HLTextField(sLabel: 'Edad', tecController: tecAge, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
               HLButtonsBoarding(sText0: const Text('Aceptar'), sText1: const Text('Cancelar'), evento: onHLTextutton)
             ]
         )

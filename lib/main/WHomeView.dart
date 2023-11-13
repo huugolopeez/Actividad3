@@ -11,6 +11,7 @@ import 'package:flutter/material.dart';
 import '../custom/HLWDrawerClass.dart';
 
 class WHomeView extends StatefulWidget {
+
   @override
   State<WHomeView> createState() => _WHomeViewState();
 }
@@ -89,7 +90,7 @@ class _WHomeViewState extends State<WHomeView> {
           padding: const EdgeInsets.all(20),
           gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 4,
-              mainAxisExtent: 150,
+              mainAxisExtent: 125,
           ),
           itemCount: posts.length,
           itemBuilder: (context, index) {

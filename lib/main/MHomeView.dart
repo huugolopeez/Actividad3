@@ -1,16 +1,16 @@
 import 'dart:io';
 
+import 'package:actividad3/custom/HLBottomMenu.dart';
+import 'package:actividad3/custom/HLMDrawerClass.dart';
+import 'package:actividad3/custom/HLPostCellView.dart';
+import 'package:actividad3/custom/HLPostGridCellView.dart';
+import 'package:actividad3/firestoreObjects/FbPost.dart';
 import 'package:actividad3/onBoarding/MLoginView.dart';
+import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../custom/HLBottomMenu.dart';
-import '../custom/HLMDrawerClass.dart';
-import '../custom/HLPostCellView.dart';
-import '../custom/HLPostGridCellView.dart';
-import '../firestoreObjects/FbPost.dart';
-import '../singletone/DataHolder.dart';
 
 class MHomeView extends StatefulWidget {
 
