@@ -1,7 +1,4 @@
-import 'dart:io';
-
 import 'package:actividad3/custom/HLBottomMenu.dart';
-import 'package:actividad3/custom/HLMDrawerClass.dart';
 import 'package:actividad3/custom/HLPostCellView.dart';
 import 'package:actividad3/custom/HLPostGridCellView.dart';
 import 'package:actividad3/firestoreObjects/FbPost.dart';
@@ -90,7 +87,10 @@ class _WHomeViewState extends State<WHomeView> {
     } else {
       return GridView.builder(
           padding: const EdgeInsets.all(20),
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 5),
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 4,
+              mainAxisExtent: 150,
+          ),
           itemCount: posts.length,
           itemBuilder: (context, index) {
             return HLPostGridCellView(

@@ -39,22 +39,16 @@ class HLPostGridCellView extends StatelessWidget {
                             sTitle,
                             textAlign: TextAlign.start,
                             overflow: TextOverflow.ellipsis,
-                            maxLines: 1,
-                            textScaleFactor: 0.7,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: dFontSize,
-                            )),
-                        Text(
-                            sBody,
-                            textAlign: TextAlign.start,
-                            overflow: TextOverflow.ellipsis,
-                            textScaleFactor: 0.5,
+                            textScaleFactor: 1,
                             maxLines: 2,
                             style: TextStyle(
-                                color: Colors.white,
-                                fontSize: dFontSize
-                            ))
+                              color: Colors.white,
+                              fontSize: dFontSize,
+                            )),
+                        Icon(
+                          Icons.add,
+                          color: Colors.white
+                        )
                       ])
               )
           )

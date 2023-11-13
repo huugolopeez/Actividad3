@@ -7,5 +7,4 @@ class GestionView extends StatelessWidget {
 
     return Scaffold();
   }
-
 }
