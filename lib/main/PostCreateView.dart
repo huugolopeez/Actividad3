@@ -12,7 +12,7 @@ class PostCreateView extends StatelessWidget {
 
   void onHLButtonsBoarding(int index) {
     if(index == 0) {
-      DataHolder().insertPost(FbPost(titulo: tecTitle.text, cuerpo: tecBody.text));
+      DataHolder().fbAdmin.insertPost(FbPost(titulo: tecTitle.text, cuerpo: tecBody.text));
       Navigator.of(_context).popAndPushNamed('/homeview');
     } else if(index == 1) {
       Navigator.of(_context).popAndPushNamed('/homeview');

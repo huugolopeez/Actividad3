@@ -19,7 +19,6 @@ class HomeView extends StatefulWidget {
 
 class _HomeViewState extends State<HomeView> {
 
-  FirebaseFirestore db = FirebaseFirestore.instance;
   final List<FbPost> posts = [];
   bool bIsList = true;
 
@@ -30,8 +29,8 @@ class _HomeViewState extends State<HomeView> {
   }
 
   void getPosts() async {
-    CollectionReference<FbPost> reference = db.collection("Posts").withConverter(fromFirestore: FbPost.fromFirestore, toFirestore: (FbPost post, _) => post.toFirestore());
-    QuerySnapshot<FbPost> querySnap = await reference.get();
+    QuerySnapshot<FbPost> querySnap = await DataHolder().fbAdmin.getPosts();
+
     for(int i = 0 ; i < querySnap.docs.length ; i++) {
       setState(() {
         posts.add(querySnap.docs[i].data());
