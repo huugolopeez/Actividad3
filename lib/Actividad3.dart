@@ -3,6 +3,7 @@ import 'package:actividad3/main/PostCreateView.dart';
 import 'package:actividad3/main/PostView.dart';
 import 'package:actividad3/onBoarding/MLoginView.dart';
 import 'package:actividad3/onBoarding/PhoneLoginView.dart';
+import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
@@ -23,6 +24,7 @@ class Actividad3 extends StatelessWidget {
     if(kIsWeb) {
       materialApp = MaterialApp(
           title: '3PMDM',
+          theme: ThemeData(fontFamily: DataHolder().plAdmin.getFont()),
           debugShowCheckedModeBanner: false,
           initialRoute: '/splashview',
           routes: {
@@ -39,6 +41,7 @@ class Actividad3 extends StatelessWidget {
     } else {
       materialApp = MaterialApp(
           title: '3PMDM',
+          theme: ThemeData(fontFamily: DataHolder().plAdmin.getFont()),
           debugShowCheckedModeBanner: false,
           initialRoute: '/splashview',
           routes: {
