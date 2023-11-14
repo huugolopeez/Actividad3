@@ -22,21 +22,26 @@ class _PostCreateViewState extends State<PostCreateView> {
 
   ImagePicker _picker = ImagePicker();
   File _imagenPreview = File('');
+  bool isPhoto = false;
 
   void onHLButtonsBoarding(int index) async {
     if(index == 0) {
-      final storageRef = FirebaseStorage.instance.ref();
-      String rutaEnNube = 'posts/${FirebaseAuth.instance.currentUser!.uid}imgs/${DateTime.now().millisecondsSinceEpoch}.jpg';
-      final rutaAFicheroEnNube = storageRef.child(rutaEnNube);
-      final metadata = SettableMetadata(contentType: 'image/jpeg');
+      String imgUrl = '';
+      if(isPhoto) {
+        final storageRef = FirebaseStorage.instance.ref();
+        String rutaEnNube = 'posts/${FirebaseAuth.instance.currentUser!.uid}imgs/${DateTime.now().millisecondsSinceEpoch}.jpg';
+        final rutaAFicheroEnNube = storageRef.child(rutaEnNube);
+        final metadata = SettableMetadata(contentType: 'image/jpeg');
 
-      try {
-        await rutaAFicheroEnNube.putFile(_imagenPreview, metadata);
-      } on FirebaseException catch (e) {
-        print('Error al subir la imagen');
+        try {
+          await rutaAFicheroEnNube.putFile(_imagenPreview, metadata);
+        } on FirebaseException catch (e) {
+          print('Error al subir la imagen');
+        }
+
+        imgUrl = await rutaAFicheroEnNube.getDownloadURL();
       }
 
-      String imgUrl = await rutaAFicheroEnNube.getDownloadURL();
       DataHolder().fbAdmin.insertPost(FbPost(titulo: tecTitle.text, cuerpo: tecBody.text, imagen: imgUrl));
 
       Navigator.of(context).popAndPushNamed('/homeview');
@@ -52,6 +57,7 @@ class _PostCreateViewState extends State<PostCreateView> {
         _imagenPreview = File(image.path);
       });
     }
+    isPhoto = true;
   }
 
   void onGalleryButton() async {
@@ -61,6 +67,7 @@ class _PostCreateViewState extends State<PostCreateView> {
           _imagenPreview = File(image.path);
         });
       }
+      isPhoto = true;
   }
 
   @override

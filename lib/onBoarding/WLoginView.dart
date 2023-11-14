@@ -61,7 +61,7 @@ class WLoginView extends StatelessWidget {
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('resources/gatoElegante.jpg', height: 200),
+              Image.asset(DataHolder().plAdmin.getImage('gatoElegante.jpg'), height: 200),
               HLTextField(sLabel: 'Username', tecController: tecEmail, iIcon: const Icon(Icons.account_circle_rounded)),
               HLTextField(sLabel: 'Password', tecController: tecPass, blIsPassword: true, iIcon: const Icon(Icons.password)),
               HLButtonsBoarding(sText0: const Text('Login'), sText1: const Text('Register'), evento: onHLButtonsBoarding)

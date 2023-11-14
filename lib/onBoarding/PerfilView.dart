@@ -9,8 +9,8 @@ import '../singletone/DataHolder.dart';
 
 class PerfilView extends StatelessWidget {
 
-  FirebaseFirestore db = FirebaseFirestore.instance;
   late BuildContext _context;
+  FirebaseFirestore db = FirebaseFirestore.instance;
   TextEditingController tecName = TextEditingController();
   TextEditingController tecAge = TextEditingController();
 
@@ -50,7 +50,7 @@ class PerfilView extends StatelessWidget {
         body: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Image.asset('resources/gatoElegante.jpg', height: 200),
+              Image.asset(DataHolder().plAdmin.getImage('gatoElegante.jpg'), height: 200),
               HLTextField(sLabel: 'Nombre', tecController: tecName, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
               HLTextField(sLabel: 'Edad', tecController: tecAge, iIcon: const Icon(Icons.drive_file_rename_outline_sharp)),
               HLButtonsBoarding(sText0: const Text('Aceptar'), sText1: const Text('Cancelar'), evento: onHLTextutton)

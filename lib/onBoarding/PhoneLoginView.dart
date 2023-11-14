@@ -1,4 +1,3 @@
-import 'package:actividad3/custom/HLButtonsBoarding.dart';
 import 'package:actividad3/custom/HLTextField.dart';
 import 'package:actividad3/singletone/DataHolder.dart';
 import 'package:firebase_auth/firebase_auth.dart';

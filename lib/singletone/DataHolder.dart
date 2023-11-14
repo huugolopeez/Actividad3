@@ -1,4 +1,5 @@
 import 'package:actividad3/singletone/FirebaseAdmin.dart';
+import 'package:actividad3/singletone/PlatformAdmin.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -12,6 +13,7 @@ class DataHolder {
 
   FirebaseFirestore db = FirebaseFirestore.instance;
   FirebaseAdmin fbAdmin = FirebaseAdmin();
+  PlatformAdmin plAdmin = PlatformAdmin();
 
   late Color colorFondo;
   late Color colorPrincipal;

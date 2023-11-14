@@ -52,10 +52,11 @@ class HLPostCellView extends StatelessWidget {
                             color: Colors.white,
                             fontSize: dFontSize
                         )),
-                    Padding(
-                      padding: const EdgeInsets.only(top: 10.0),
-                      child: Image.network(sImage, height: 200)
-                    )
+                    if(sImage != '')
+                      Padding(
+                        padding: const EdgeInsets.only(top: 10.0),
+                        child: Image.network(sImage, height: 200)
+                      )
                   ])
           )
       )

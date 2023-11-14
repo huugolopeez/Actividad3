@@ -1,3 +1,4 @@
+import 'package:actividad3/singletone/PlatformAdmin.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -52,7 +53,7 @@ class _SplashViewState extends State<SplashView> {
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Image.asset('resources/gatoElegante.jpg', width: 300, height: 400),
+                Image.asset(DataHolder().plAdmin.getImage('gatoElegante.jpg'), width: 300, height: 400),
                 const CircularProgressIndicator()
               ]
           )
