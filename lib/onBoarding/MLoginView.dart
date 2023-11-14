@@ -68,7 +68,7 @@ class MLoginView extends StatelessWidget {
             ]
         ),
         floatingActionButton: FloatingActionButton(
-            onPressed: () { Navigator.of(context).popAndPushNamed('/phoneloginview'); },
+            onPressed: () { Navigator.of(context).pushNamed('/phoneloginview'); },
             backgroundColor: DataHolder().colorPrincipal,
             child: const Icon(Icons.mobile_friendly)
         )
